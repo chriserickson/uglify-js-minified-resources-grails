@@ -4,8 +4,9 @@ import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
 import org.grails.plugins.resources.minified.js.uglify.UglifyEngine
 import org.mozilla.javascript.EvaluatorException
 import org.codehaus.groovy.grails.commons.GrailsApplication
+import org.grails.plugin.resource.mapper.MapperPhase
 
-class UglifyJsMinifyResourceMapper implements GrailsApplicationAware {
+class UglifyJsMinifiedResourceMapper implements GrailsApplicationAware {
     def phase = MapperPhase.COMPRESSION
     def operation = "uglify"
     static defaultIncludes = ['**/*.js']
