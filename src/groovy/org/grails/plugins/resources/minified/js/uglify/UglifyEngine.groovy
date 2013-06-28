@@ -1,4 +1,4 @@
-package org.grails.plugins.uglify
+package org.grails.plugins.resources.minified.js.uglify
 
 import org.springframework.core.io.ClassPathResource
 import org.mozilla.javascript.Context
@@ -18,7 +18,7 @@ class UglifyEngine {
         Context jsContext
 
         try {
-            def uglifyJsSource = new ClassPathResource('/org/grails/plugins/uglify/uglify-2.3.6.js', this.class.classLoader)
+            def uglifyJsSource = new ClassPathResource('/org/grails/plugins/resources/minified/js/uglify/uglify-2.3.6.js', this.class.classLoader)
 
             if (!uglifyJsSource.exists())
                 throw new MissingResourceException("Could not find uglify.js", "UglifyEngine", "uglify-2.3.6.js")

@@ -1,7 +1,7 @@
 package org.grails.plugins.resources.minified.js.uglify
 
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
-import org.grails.plugins.uglify.UglifyEngine
+import org.grails.plugins.resources.minified.js.uglify.UglifyEngine
 import org.mozilla.javascript.EvaluatorException
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
