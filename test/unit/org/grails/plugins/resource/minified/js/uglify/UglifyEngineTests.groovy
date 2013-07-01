@@ -1,4 +1,6 @@
-package org.grails.plugins.resources.minified.js.uglify
+package org.grails.plugins.resource.minified.js.uglify
+
+import org.grails.plugin.resource.minified.js.uglify.UglifyEngine
 
 class UglifyEngineTests extends grails.test.GrailsUnitTestCase {
     def uglifyEngine
@@ -19,11 +21,18 @@ class UglifyEngineTests extends grails.test.GrailsUnitTestCase {
             this.testPublicFunction2 = function() { return somePrivateVariable }
         }
 """
-        def output = uglifyEngine.minify(input, "In memory file")
+        def output = uglifyEngine.minify(input, [filename: "In memory file", noMunge: false])
         assert output.contains("testNamespace")
         assert output.contains("testPublicFunction")
         assert output.contains("testPublicFunction2")
         assert !output.contains("Private")
+        assert !output.contains("comment")
+
+        output = uglifyEngine.minify(input, [filename: "In memory file", noMunge: true])
+        assert output.contains("testNamespace")
+        assert output.contains("testPublicFunction")
+        assert output.contains("testPublicFunction2")
+        assert output.contains("Private")
         assert !output.contains("comment")
     }
 }

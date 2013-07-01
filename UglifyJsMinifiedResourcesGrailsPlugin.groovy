@@ -6,7 +6,7 @@ class UglifyJsMinifiedResourcesGrailsPlugin {
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
     def dependsOn = [:]
-    // resources that are excluded from plugin packaging
+    // resource that are excluded from plugin packaging
     def pluginExcludes = [
             "grails-app/views/error.gsp"
     ]
@@ -15,12 +15,12 @@ class UglifyJsMinifiedResourcesGrailsPlugin {
     def author = "Chris Erickson"
     def authorEmail = "cp.erickson@gmail.com"
     def description = '''\
-Plugin that works with the resources plugin to minify javascript resources using Uglify2.
+Plugin that works with the resources plugin to minify javascript resource using Uglify2.
 '''
 
     def watchedResources = [ "file:./web-app/js/**/*.js", "file:./web-app/coffee/**/*.coffee", "file:./web-app/cs/**/*.coffee" ]
     def documentation = "https://github.com/chriserickson/uglify-js-minified-resources-grails"
-    def issueManagement = [ system: "GitHub", url: "https://github.com/chriserickson/uglify-js-minified-resources-grails/issues" ]
+    def issueManagement = [ system: "GitHub", url: "https://github.com/chriserickson/uglify-js-minified-resource-grails/issues" ]
 
     def onChange = { event ->
     }

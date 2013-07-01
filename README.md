@@ -13,3 +13,12 @@ for examples on how to use the Rhino library.
 
 ## Usage
 This plugin should automagically minify your javascript files if it is enabled.
+
+To disable variable munging, set the following in Config.groovy:
+grails.resources.mappers.uglifyjs.noMunge = true
+
+To get info on compression, turn on info logging in Config.groovy:
+log4j = {
+    // info 'org.grails.plugin.resource' //all resources info logging
+    // info 'org.grails.plugin.resource.minified.js.uglify' // just the uglify info
+}

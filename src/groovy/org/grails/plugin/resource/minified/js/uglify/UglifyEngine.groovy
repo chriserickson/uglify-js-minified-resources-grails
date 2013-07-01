@@ -1,4 +1,4 @@
-package org.grails.plugins.resources.minified.js.uglify
+package org.grails.plugin.resource.minified.js.uglify
 
 import org.springframework.core.io.ClassPathResource
 import org.mozilla.javascript.Context
@@ -18,7 +18,7 @@ class UglifyEngine {
         Context jsContext
 
         try {
-            def uglifyJsSource = new ClassPathResource('/org/grails/plugins/resources/minified/js/uglify/uglify-2.3.6.js', this.class.classLoader)
+            def uglifyJsSource = new ClassPathResource('/org/grails/plugin/resource/minified/js/uglify/uglify-2.3.6.js', this.class.classLoader)
 
             if (!uglifyJsSource.exists())
                 throw new MissingResourceException("Could not find uglify.js", "UglifyEngine", "uglify-2.3.6.js")
@@ -40,28 +40,33 @@ class UglifyEngine {
         }
     }
 
-    public String minify(String input, String filename) {
+    public String minify(String input, options) {
         Context jsContext
         try {
             jsContext = Context.enter()
             def scope = jsContext.newObject(this.globalScope)
             scope.setParentScope(this.globalScope)
             scope.put("codeToMinify", scope, input)
-            scope.put("filename", scope, filename)
+            scope.put("filename", scope, options?.filename ?: "unknown")
 
             // https://github.com/mishoo/UglifyJS2/issues/67
             // can't use this
             // var uglifyCommand = "UglifyJS.minify(codeToMinify, { fromString: true, mangle: true });"
-            def uglifyCommand = """
+            def uglifyCommand = """\
                 (function() {
                     var parsedAst = UglifyJS.parse(codeToMinify, { filename: filename} )
                     parsedAst.figure_out_scope()
 
                     var compressedAst = parsedAst.transform(UglifyJS.Compressor())
+"""
+            if (!options?.noMunge)
+                uglifyCommand += """\
                     compressedAst.figure_out_scope()
                     compressedAst.compute_char_frequency()
                     compressedAst.mangle_names()
+"""
 
+            uglifyCommand += """\
                     return compressedAst.print_to_string()
                 }())
 """
