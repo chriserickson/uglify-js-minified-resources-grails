@@ -1,13 +1,11 @@
 package org.grails.plugins.resource.minified.js.uglify
 
+import grails.test.GrailsUnitTestCase
+
 import org.grails.plugin.resource.minified.js.uglify.UglifyEngine
 
-class UglifyEngineTests extends grails.test.GrailsUnitTestCase {
-    def uglifyEngine
-
-    void setUp() {
-        uglifyEngine = new UglifyEngine()
-    }
+class UglifyEngineTests extends GrailsUnitTestCase {
+    def uglifyEngine = new UglifyEngine()
 
     void testMinify() {
         def input = """
