@@ -10,13 +10,23 @@ I made generous use of the [coffeescript resources plugin](https://github.com/ed
 for examples on how to use the Rhino library.
 
 ## Usage
-This plugin should automagically minify your javascript files if it is enabled.
+This plugin should automagically minify your javascript files if it is installed. There is no manditory configuration
+required.
 
-To disable variable munging, set the following in Config.groovy:
-grails.resources.mappers.uglifyjs.noMunge = true
+This plugin ignores javascript files which have an extension of *.min.js.
+
+By default, bundles are ignored since the individual files are minified before getting bundled.
+To enable bundling, set the following in Config.groovy:
+
+'grails.resources.mappers.uglifyjs.forceBundleMinification = true'
+
+To disable javascript variable munging, set the following in Config.groovy:
+
+'grails.resources.mappers.uglifyjs.noMunge = true'
 
 To get info on compression, turn on info logging in Config.groovy:
-log4j = {
+
+'log4j = {
     // info 'org.grails.plugin.resource' //all resources info logging
     // info 'org.grails.plugin.resource.minified.js.uglify' // just the uglify info
-}
+}'
