@@ -10,6 +10,8 @@ class UglifyJsMinifiedResourcesGrailsPlugin {
     def watchedResources = [ "file:./web-app/js/**/*.js", "file:./web-app/coffee/**/*.coffee", "file:./web-app/cs/**/*.coffee" ]
     def documentation = "https://github.com/chriserickson/uglify-js-minified-resources-grails"
     def issueManagement = [ system: "GitHub", url: "https://github.com/chriserickson/uglify-js-minified-resource-grails/issues" ]
+    def license = "APACHE"
+    def scm = [url: 'https://github.com/chriserickson/uglify-js-minified-resource-grails']
 
     def doWithSpring = { ->
         // these are in the coffeescript plugin, not sure what they do.
