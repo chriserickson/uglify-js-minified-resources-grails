@@ -26,7 +26,9 @@ To disable javascript variable munging, set the following in Config.groovy:
 
 To get info on compression, turn on info logging in Config.groovy:
 
-`log4j = {
+<pre>
+log4j = {
     // info 'org.grails.plugin.resource' //all resources info logging
     // info 'org.grails.plugin.resource.minified.js.uglify' // just the uglify info
-}`
+}
+</pre>
