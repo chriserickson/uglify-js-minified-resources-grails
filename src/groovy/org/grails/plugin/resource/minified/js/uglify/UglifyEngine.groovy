@@ -40,7 +40,7 @@ class UglifyEngine {
         }
     }
 
-    public String minify(String input, options) {
+    String minify(String input, options) {
         Context jsContext
         try {
             jsContext = Context.enter()
