@@ -32,3 +32,6 @@ log4j = {
     // info 'org.grails.plugin.resource.minified.js.uglify' // just the uglify info
 }
 </pre>
+
+## License
+UglifyJS is licensed under the BSD license.
