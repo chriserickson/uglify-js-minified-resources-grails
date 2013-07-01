@@ -1,5 +1,5 @@
-This is a GRAILS plugin which provides minification of javascript resources using [Uglify2](https://github.com/mishoo/UglifyJS2).
-It is dependent on the standard [GRAILS Resources Plugin](http://grails.org/plugin/resources)
+This is a Grails plugin which provides minification of javascript resources using [Uglify2](https://github.com/mishoo/UglifyJS2).
+It is dependent on the standard [Grails Resources Plugin](http://grails.org/plugin/resources)
 
 ## Background
 Due to the fact that the [YUI Minified Resources Plugin](http://grails.org/plugin/yui-minify-resources) has
