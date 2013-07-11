@@ -10,6 +10,8 @@ I made generous use of the [coffeescript resources plugin](https://github.com/ed
 for examples on how to use the Rhino library.
 
 ## Usage
+This plugin is available from the [Grails Plugin repository](http://grails.org/plugin/uglify-js-minified-resources)
+
 This plugin should automagically minify your javascript files if it is installed. There is no mandatory configuration
 required.
 
