@@ -19,21 +19,22 @@ This plugin ignores javascript files which have an extension of *.min.js.
 
 By default, bundles are ignored since the individual files are minified before getting bundled.
 To enable bundling, set the following in Config.groovy:
-
-`grails.resources.mappers.uglifyjs.forceBundleMinification = true`
+```groovy
+grails.resources.mappers.uglifyjs.forceBundleMinification = true
+```
 
 To disable javascript variable munging, set the following in Config.groovy:
-
-`grails.resources.mappers.uglifyjs.noMunge = true`
+```grovy
+grails.resources.mappers.uglifyjs.noMunge = true
+```
 
 To get info on compression, turn on info logging in Config.groovy:
-
-<pre>
+```groovy
 log4j = {
     // info 'org.grails.plugin.resource' //all resources info logging
     // info 'org.grails.plugin.resource.minified.js.uglify' // just the uglify info
 }
-</pre>
+```
 
 ## License
 UglifyJS is licensed under the BSD license.
