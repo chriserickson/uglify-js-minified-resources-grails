@@ -1,5 +1,6 @@
 package org.grails.plugin.resource.minified.js.uglify
 
+import grails.converters.JSON
 import org.springframework.core.io.ClassPathResource
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Scriptable
@@ -66,8 +67,9 @@ class UglifyEngine {
                     compressedAst.mangle_names()
 """
 
+            def printOptions = (options?.beautifierOptions ?: [:]) as JSON
             uglifyCommand += """\
-                    return compressedAst.print_to_string()
+                    return compressedAst.print_to_string($printOptions)
                 }())
 """
 
