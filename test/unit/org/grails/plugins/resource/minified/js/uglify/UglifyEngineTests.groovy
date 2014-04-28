@@ -33,5 +33,14 @@ class UglifyEngineTests extends GrailsUnitTestCase {
         assert output.contains("Private")
         assert !output.contains("comment")
     }
+
+    void testBeautifier() {
+        def input = "var unicodeChar = '\u24b6';"
+        def output = uglifyEngine.minify(input, [filename: "In memory file"])
+        assert !output.contains("u24b6")
+
+        output = uglifyEngine.minify(input, [filename: "In memory file", beautifierOptions: [ascii_only: true]])
+        assert output.contains("u24b6")
+    }
 }
 

@@ -38,7 +38,7 @@ class UglifyJsResourceMapper implements GrailsApplicationAware {
 
         try {
             Date start = new Date()
-            def output = new UglifyEngine().minify(original.text, [filename: original.name, noMunge: config?.noMunge ?: false])
+            def output = new UglifyEngine().minify(original.text, [filename: original.name] + config)
             target.write(output)
 
             resource.processedFile = target
