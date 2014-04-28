@@ -19,7 +19,7 @@ class UglifyJsResourceMapper implements GrailsApplicationAware {
     static defaultIncludes = ['**/*.js']
 
     GrailsApplication grailsApplication
-    UglifyEngine uglifyEngine
+    UglifyEngine uglifyEngine = new UglifyEngine()
 
     def map(resource, config) {
         if (config?.disable) {
