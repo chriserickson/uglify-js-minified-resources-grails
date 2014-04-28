@@ -19,6 +19,7 @@ class UglifyJsResourceMapper implements GrailsApplicationAware {
     static defaultIncludes = ['**/*.js']
 
     GrailsApplication grailsApplication
+    UglifyEngine uglifyEngine = new UglifyEngine()
 
     def map(resource, config) {
         if (config?.disable) {
@@ -38,7 +39,7 @@ class UglifyJsResourceMapper implements GrailsApplicationAware {
 
         try {
             Date start = new Date()
-            def output = new UglifyEngine().minify(original.text, [filename: original.name, noMunge: config?.noMunge ?: false])
+            def output = uglifyEngine.minify(original.text, [filename: original.name, noMunge: config?.noMunge ?: false])
             target.write(output)
 
             resource.processedFile = target
